@@ -4,7 +4,7 @@ from rest_framework import status
 from pymongo import MongoClient
 from pymongo.errors import OperationFailure
 
-client = MongoClient("mongodb+srv://Cipher:Test@cluster0.qabsj.mongodb.net/?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://Cipher:Tushar@0380@cluster0.qabsj.mongodb.net/?retryWrites=true&w=majority")
 db_handle=client["Test"]
 MetaData_handle = db_handle['MetaData']
 
