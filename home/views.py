@@ -4,10 +4,10 @@ from rest_framework import status
 from pymongo import MongoClient
 from pymongo.errors import OperationFailure
 import urllib.parse
+import os
 
-username = urllib.parse.quote_plus('USERNAME_OF_DB_USER')
-password = urllib.parse.quote_plus('PASSWORD_OF_DB_USER')
-client = MongoClient("mongodb+srv://"+username+":"+password+"@cluster0.qabsj.mongodb.net/?retryWrites=true&w=majority")
+
+client = MongoClient(os.environ.get("mongo_uri"))
 db_handle=client["Test"]
 MetaData_handle = db_handle['MetaData']
 
