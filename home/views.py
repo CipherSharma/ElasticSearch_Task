@@ -3,8 +3,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from pymongo import MongoClient
 from pymongo.errors import OperationFailure
+import os
 
-client = MongoClient("mongodb+srv://Cipher:Tushar@0380@cluster0.qabsj.mongodb.net/?retryWrites=true&w=majority")
+client = MongoClient(os.environ.get("mongo_uri"))
 db_handle=client["Test"]
 MetaData_handle = db_handle['MetaData']
 
