@@ -6,7 +6,7 @@ from pymongo.errors import OperationFailure
 import urllib.parse
 import os
 
-
+# mongodb+srv://Cipher:Test@cluster0.qabsj.mongodb.net/?retryWrites=true&w=majority
 client = MongoClient(os.environ.get("mongo_uri"))
 db_handle=client["Test"]
 MetaData_handle = db_handle['MetaData']
@@ -24,6 +24,10 @@ def search(query):
                                 "text": {
                                     "query": query,
                                     "path": ["Title", "Category", "SubCategory"],
+                                    "fuzzy": {
+                                            "maxEdits": 2,
+                                            "prefixLength": 3
+                                }
                                 }
                             },
                         ],
