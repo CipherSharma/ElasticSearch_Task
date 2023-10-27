@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from pymongo import MongoClient
 from pymongo.errors import OperationFailure
+from django.shortcuts import render
 import urllib.parse
 import os
 
@@ -11,6 +12,9 @@ client = MongoClient(os.environ.get("mongo_uri"))
 db_handle=client["Test"]
 MetaData_handle = db_handle['MetaData']
 
+def index(request):
+    return render(request, 'index.html')
+    
 def search(query):
     try:
         # Define the search pipeline
