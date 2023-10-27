@@ -12,8 +12,7 @@ client = MongoClient(os.environ.get("mongo_uri"))
 db_handle=client["Test"]
 MetaData_handle = db_handle['MetaData']
 
-def index(request):
-    return render(request, 'index.html')
+
     
 def search(query):
     try:
